@@ -1,7 +1,6 @@
 <template>
   <div class="chart-container">
-    <div class="chart"
-         ref="Efour"></div>
+    <div class="chart" ref="Efour"></div>
     <!-- 底座背景 -->
     <div class="bg"></div>
   </div>
@@ -18,31 +17,36 @@ const color = ['#94F3EB', '#095E74', '#28AC80', '#EE2932', '#F6875D']
 export default {
   name: 'Efour',
   data () {
-      this.statusChart = null;
+    this.statusChart = null
     return {
       optionData: [
         {
-          name: '一楼能耗',
+          name: '1#楼',
           value: 276
         },
         {
-          name: '二楼能耗',
+          name: '2#楼',
           value: 188
         },
         {
-          name: '三楼能耗',
+          name: '3#楼',
           value: 88
         },
         {
-          name: '四楼能耗',
+          name: '4#楼',
           value: 58
         },
         {
-          name: '五楼能耗',
+          name: '5#楼',
           value: 28
         }
       ],
-      option: {}
+      option: {
+        legend: {
+          right: '0',
+          left: 'center'
+        }
+      }
     }
   },
   created () {
@@ -52,9 +56,8 @@ export default {
     this.initChart()
 
     // 根据窗口变化自动调节图表大小
-    const that = this
     window.onresize = function () {
-    //   that.changeSize()
+      //   that.changeSize()
     }
   },
   methods: {
@@ -65,42 +68,40 @@ export default {
           color: color[index]
         }
         item.label = {
-          normal: {
-            show: true,
-            color: color[index],
-            formatter: [
-              '{b|{b}}',
-              '{c|{c}}{b|kecg}',
-              '{d|{d}%}'
-            ].join('\n'), // 用\n来换行
-            rich: {
-              b: {
-                color: '#fff',
-                lineHeight: 25,
-                align: 'left'
-              },
-              c: {
-                fontSize: 22,
-                color: '#fff',
-                textShadowColor: '#1c90a6',
-                textShadowOffsetX: 0,
-                textShadowOffsetY: 2,
-                textShadowBlur: 5
-              },
-              d: {
-                color: color[index],
-                align: 'left'
-              }
-            }
-          }
+          show: false
+          // normal: {
+          //   show: true,
+          //   color: color[index],
+          //   formatter: ['{b|{b}}', '{c|{c}}{b|kecg}', '{d|{d}%}'].join('\n'), // 用\n来换行
+          //   rich: {
+          //     b: {
+          //       color: '#fff',
+          //       lineHeight: 25,
+          //       align: 'left'
+          //     },
+          //     c: {
+          //       fontSize: 22,
+          //       color: '#fff',
+          //       textShadowColor: '#1c90a6',
+          //       textShadowOffsetX: 0,
+          //       textShadowOffsetY: 2,
+          //       textShadowBlur: 5
+          //     },
+          //     d: {
+          //       color: color[index],
+          //       align: 'left'
+          //     }
+          //   }
+          // }
         }
         item.labelLine = {
-          normal: {
-            lineStyle: {
-              width: 1,
-              color: 'rgba(255,255,255,0.7)'
-            }
-          }
+          show: false
+          // normal: {
+          //   lineStyle: {
+          //     width: 1,
+          //     color: 'rgba(255,255,255,0.7)'
+          //   }
+          // }
         }
       })
     },
@@ -109,6 +110,7 @@ export default {
       this.statusChart = echarts.init(this.$refs.Efour)
       // 传入数据生成 option, 构建3d饼状图, 参数工具文件已经备注的很详细
       this.option = getPie3D(this.optionData, 0.8, 240, 28, 26, 0.5)
+      console.log('this.option', this.option)
       this.statusChart.setOption(this.option)
       // 是否需要label指引线，如果要就添加一个透明的2d饼状图并调整角度使得labelLine和3d的饼状图对齐，并再次setOption
       this.option.series.push({
@@ -123,7 +125,7 @@ export default {
         startAngle: -40, // 起始角度，支持范围[0, 360]。
         clockwise: false, // 饼图的扇区是否是顺时针排布。上述这两项配置主要是为了对齐3d的样式
         radius: ['20%', '50%'],
-        center: ['50%', '50%'],
+        center: ['50%', '30%'],
         data: this.optionData,
         itemStyle: {
           opacity: 0 // 这里必须是0，不然2d的图会覆盖在表面
@@ -140,8 +142,8 @@ export default {
       // 监听点击事件，实现选中效果（单选）
       myChart.on('click', (params) => {
         // 从 option.series 中读取重新渲染扇形所需的参数，将是否选中取反。
-        const isSelected = !this[optionName].series[params.seriesIndex].pieStatus
-          .selected
+        const isSelected =
+          !this[optionName].series[params.seriesIndex].pieStatus.selected
         const isHovered =
           this[optionName].series[params.seriesIndex].pieStatus.hovered
         const k = this[optionName].series[params.seriesIndex].pieStatus.k
@@ -151,30 +153,29 @@ export default {
           this[optionName].series[params.seriesIndex].pieData?.endRatio
         // 如果之前选中过其他扇形，将其取消选中（对 option 更新）
         if (selectedIndex !== '' && selectedIndex !== params.seriesIndex) {
-          this[optionName].series[
-            selectedIndex
-          ].parametricEquation = getParametricEquation(
-            this[optionName].series[selectedIndex].pieData.startRatio,
-            this[optionName].series[selectedIndex].pieData?.endRatio,
-            false,
-            false,
-            k,
-            this[optionName].series[selectedIndex].pieData.value
-          )
+          this[optionName].series[selectedIndex].parametricEquation =
+            getParametricEquation(
+              this[optionName].series[selectedIndex].pieData.startRatio,
+              this[optionName].series[selectedIndex].pieData?.endRatio,
+              false,
+              false,
+              k,
+              this[optionName].series[selectedIndex].pieData.value
+            )
           this[optionName].series[selectedIndex].pieStatus.selected = false
         }
         // 对当前点击的扇形，执行选中/取消选中操作（对 option 更新）
-        this[optionName].series[
-          params.seriesIndex
-        ].parametricEquation = getParametricEquation(
-          startRatio,
-          endRatio,
-          isSelected,
-          isHovered,
-          k,
-          this[optionName].series[params.seriesIndex].pieData.value
-        )
-        this[optionName].series[params.seriesIndex].pieStatus.selected = isSelected
+        this[optionName].series[params.seriesIndex].parametricEquation =
+          getParametricEquation(
+            startRatio,
+            endRatio,
+            isSelected,
+            isHovered,
+            k,
+            this[optionName].series[params.seriesIndex].pieData.value
+          )
+        this[optionName].series[params.seriesIndex].pieStatus.selected =
+          isSelected
         // 如果本次是选中操作，记录上次选中的扇形对应的系列号 seriesIndex
         selectedIndex = isSelected ? params.seriesIndex : null
         // 使用更新后的 option，渲染图表
@@ -195,22 +196,23 @@ export default {
           // 如果当前有高亮的扇形，取消其高亮状态（对 option 更新）
           if (hoveredIndex !== '') {
             // 从 option.series 中读取重新渲染扇形所需的参数，将是否高亮设置为 false。
-            isSelected = this[optionName].series[hoveredIndex].pieStatus.selected
+            isSelected =
+              this[optionName].series[hoveredIndex].pieStatus.selected
             isHovered = false
-            startRatio = this[optionName].series[hoveredIndex].pieData.startRatio
+            startRatio =
+              this[optionName].series[hoveredIndex].pieData.startRatio
             endRatio = this[optionName].series[hoveredIndex].pieData.endRatio
             k = this[optionName].series[hoveredIndex].pieStatus.k
             // 对当前点击的扇形，执行取消高亮操作（对 option 更新）
-            this[optionName].series[
-              hoveredIndex
-            ].parametricEquation = getParametricEquation(
-              startRatio,
-              endRatio,
-              isSelected,
-              isHovered,
-              k,
-              this[optionName].series[hoveredIndex].pieData.value
-            )
+            this[optionName].series[hoveredIndex].parametricEquation =
+              getParametricEquation(
+                startRatio,
+                endRatio,
+                isSelected,
+                isHovered,
+                k,
+                this[optionName].series[hoveredIndex].pieData.value
+              )
             this[optionName].series[hoveredIndex].pieStatus.hovered = isHovered
             // 将此前记录的上次选中的扇形对应的系列号 seriesIndex 清空
             hoveredIndex = ''
@@ -226,22 +228,21 @@ export default {
             isHovered = true
             startRatio =
               this[optionName].series[params.seriesIndex].pieData.startRatio
-            endRatio = this[optionName].series[params.seriesIndex].pieData.endRatio
+            endRatio =
+              this[optionName].series[params.seriesIndex].pieData.endRatio
             k = this[optionName].series[params.seriesIndex].pieStatus.k
             // 对当前点击的扇形，执行高亮操作（对 option 更新）
-            this[optionName].series[
-              params.seriesIndex
-            ].parametricEquation = getParametricEquation(
-              startRatio,
-              endRatio,
-              isSelected,
-              isHovered,
-              k,
-              this[optionName].series[params.seriesIndex].pieData.value + 60
-            )
-            this[optionName].series[
-              params.seriesIndex
-            ].pieStatus.hovered = isHovered
+            this[optionName].series[params.seriesIndex].parametricEquation =
+              getParametricEquation(
+                startRatio,
+                endRatio,
+                isSelected,
+                isHovered,
+                k,
+                this[optionName].series[params.seriesIndex].pieData.value + 60
+              )
+            this[optionName].series[params.seriesIndex].pieStatus.hovered =
+              isHovered
             // 记录上次高亮的扇形对应的系列号 seriesIndex
             hoveredIndex = params.seriesIndex
           }
@@ -265,16 +266,15 @@ export default {
           startRatio = this[optionName].series[hoveredIndex].pieData.startRatio
           endRatio = this[optionName].series[hoveredIndex].pieData.endRatio
           // 对当前点击的扇形，执行取消高亮操作（对 option 更新）
-          this[optionName].series[
-            hoveredIndex
-          ].parametricEquation = getParametricEquation(
-            startRatio,
-            endRatio,
-            isSelected,
-            isHovered,
-            k,
-            this[optionName].series[hoveredIndex].pieData.value
-          )
+          this[optionName].series[hoveredIndex].parametricEquation =
+            getParametricEquation(
+              startRatio,
+              endRatio,
+              isSelected,
+              isHovered,
+              k,
+              this[optionName].series[hoveredIndex].pieData.value
+            )
           this[optionName].series[hoveredIndex].pieStatus.hovered = isHovered
           // 将此前记录的上次选中的扇形对应的系列号 seriesIndex 清空
           hoveredIndex = ''

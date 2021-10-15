@@ -36,8 +36,7 @@ const getPie3D = (pieData, internalDiameterRatio, distance, alpha, pieHeight, op
         selected: false,
         hovered: false,
         k: k
-      },
-      center: ['10%', '50%']
+      }
     }
     if (typeof pieData[i].itemStyle !== 'undefined') {
       const itemStyle = {}
@@ -85,11 +84,11 @@ const getPie3D = (pieData, internalDiameterRatio, distance, alpha, pieHeight, op
   // 准备待返回的配置项，把准备好的 legendData、series 传入。
   const option = {
     legend: {
-      show: false,
+      show: true,
       data: legendData,
       orient: 'vertical',
-      left: 10,
-      top: 10,
+      right: '15%',
+      top: 'center',
       itemGap: 10,
       textStyle: {
         color: '#A1E2FF'
@@ -97,18 +96,18 @@ const getPie3D = (pieData, internalDiameterRatio, distance, alpha, pieHeight, op
       icon: 'circle',
       formatter: function (param) {
         const item = legendBfb.filter(item => item.name === param)[0]
-        const bfs = fomatFloat(item.value * 100, 2) + '%'
-        return `${item.name}  ${bfs}`
+        // const bfs = fomatFloat(item.value * 100, 2) + '%'
+        return `${item.name}`
       }
     },
     labelLine: {
-      show: true,
+      show: false,
       lineStyle: {
         color: '#fff'
       }
     },
     label: {
-      show: true,
+      show: false,
       position: 'outside',
       formatter: '{b} \n{c} {d}%'
     },
@@ -151,6 +150,7 @@ const getPie3D = (pieData, internalDiameterRatio, distance, alpha, pieHeight, op
     },
     grid3D: {
       show: false,
+      width: '70%',
       boxHeight: boxHeight, // 圆环的高度
       viewControl: {
         // 3d效果可以放大、旋转等，请自己去查看官方配置
