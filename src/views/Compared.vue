@@ -371,7 +371,7 @@ export default {
     height: 46px;
     background-image: url('../assets/img/组 1.png');
     background-size: 100% 100%;
-    padding: 0 160px 10px 30px;
+    padding: 0 160px 13px 30px;
     box-sizing: border-box;
     display: flex;
     align-items: center;

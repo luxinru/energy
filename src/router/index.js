@@ -5,6 +5,7 @@ import SubOption from '@/views/SubOption'
 import Inquire from '@/views/Inquire'
 import Compared from '@/views/Compared'
 import SubOption2 from '@/views/SubOption2'
+import Cockpit from '@/views/Cockpit/index'
 import Test from '@/views/Test'
 
 const routes = [
@@ -35,6 +36,10 @@ const routes = [
   {
     path: '/sub-option2',
     component: SubOption2
+  },
+  {
+    path: '/cockpit',
+    component: Cockpit
   },
   {
     path: '/test',
