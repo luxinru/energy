@@ -2,6 +2,8 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import ScreenPage from '@/views/ScreenPage'
 import Home from '@/views/Home'
 import SubOption from '@/views/SubOption'
+import Inquire from '@/views/Inquire'
+import Compared from '@/views/Compared'
 import Test from '@/views/Test'
 
 const routes = [
@@ -20,6 +22,14 @@ const routes = [
   {
     path: '/screen',
     component: ScreenPage
+  },
+  {
+    path: '/inquire',
+    component: Inquire
+  },
+  {
+    path: '/compared',
+    component: Compared
   },
   {
     path: '/test',
