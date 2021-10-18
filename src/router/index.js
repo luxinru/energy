@@ -4,6 +4,7 @@ import Home from '@/views/Home'
 import SubOption from '@/views/SubOption'
 import Inquire from '@/views/Inquire'
 import Compared from '@/views/Compared'
+import SubOption2 from '@/views/SubOption2'
 import Test from '@/views/Test'
 
 const routes = [
@@ -30,6 +31,10 @@ const routes = [
   {
     path: '/compared',
     component: Compared
+  },
+  {
+    path: '/sub-option2',
+    component: SubOption2
   },
   {
     path: '/test',
