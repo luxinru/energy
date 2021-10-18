@@ -22,79 +22,87 @@
     <section class="container">
       <div class="box">
         <div class="part">
-          <table>
-            <tr>
-              <th>项目</th>
-              <th>数值</th>
-              <th>单位</th>
-            </tr>
-            <tr v-for="(item, index) in tableData1" :key="index">
-              <td>{{ item.project }}</td>
-              <td>{{ item.number }}</td>
-              <td>{{ item.unit }}</td>
-            </tr>
-          </table>
+          <el-scrollbar >
+            <table>
+              <tr>
+                <th>项目</th>
+                <th>数值</th>
+                <th>单位</th>
+              </tr>
+              <tr v-for="(item, index) in tableData1" :key="index">
+                <td>{{ item.project }}</td>
+                <td>{{ item.number }}</td>
+                <td>{{ item.unit }}</td>
+              </tr>
+            </table>
+          </el-scrollbar>
         </div>
         <div class="part">
-          <table>
-            <tr>
-              <th>序号</th>
-              <th>名称</th>
-              <th>可租赁面积（平米）</th>
-              <th>总用电量（度）</th>
-              <th>单位面积用电量（度/平米）</th>
-              <th>总用水量（吨）</th>
-              <th>单位面积用水量（吨/平米）</th>
-            </tr>
-            <tr v-for="(item, index) in tableData2" :key="index">
-              <td>{{ index + 1 }}</td>
-              <td>{{ item.value1 }}</td>
-              <td>{{ item.value2 }}</td>
-              <td>{{ item.value3 }}</td>
-              <td>{{ item.value4 }}</td>
-              <td>{{ item.value5 }}</td>
-              <td>{{ item.value6 }}</td>
-            </tr>
-          </table>
+          <el-scrollbar >
+            <table>
+              <tr>
+                <th>序号</th>
+                <th>名称</th>
+                <th>可租赁面积（平米）</th>
+                <th>总用电量（度）</th>
+                <th>单位面积用电量（度/平米）</th>
+                <th>总用水量（吨）</th>
+                <th>单位面积用水量（吨/平米）</th>
+              </tr>
+              <tr v-for="(item, index) in tableData2" :key="index">
+                <td>{{ index + 1 }}</td>
+                <td>{{ item.value1 }}</td>
+                <td>{{ item.value2 }}</td>
+                <td>{{ item.value3 }}</td>
+                <td>{{ item.value4 }}</td>
+                <td>{{ item.value5 }}</td>
+                <td>{{ item.value6 }}</td>
+              </tr>
+            </table>
+          </el-scrollbar>
         </div>
       </div>
       <div class="box">
         <div class="part">
-          <table>
-            <tr>
-              <th>项目</th>
-              <th>数值</th>
-              <th>单位</th>
-            </tr>
-            <tr v-for="(item, index) in tableData1" :key="index">
-              <td>{{ item.project }}</td>
-              <td>{{ item.number }}</td>
-              <td>{{ item.unit }}</td>
-            </tr>
-          </table>
+          <el-scrollbar>
+            <table>
+              <tr>
+                <th>项目</th>
+                <th>数值</th>
+                <th>单位</th>
+              </tr>
+              <tr v-for="(item, index) in tableData1" :key="index">
+                <td>{{ item.project }}</td>
+                <td>{{ item.number }}</td>
+                <td>{{ item.unit }}</td>
+              </tr>
+            </table>
+          </el-scrollbar>
         </div>
 
         <div class="part">
-          <table>
-            <tr>
-              <th>序号</th>
-              <th>名称</th>
-              <th>可租赁面积（平米）</th>
-              <th>总用电量（度）</th>
-              <th>单位面积用电量（度/平米）</th>
-              <th>总用水量（吨）</th>
-              <th>单位面积用水量（吨/平米）</th>
-            </tr>
-            <tr v-for="(item, index) in tableData2" :key="index">
-              <td>{{ index + 1 }}</td>
-              <td>{{ item.value1 }}</td>
-              <td>{{ item.value2 }}</td>
-              <td>{{ item.value3 }}</td>
-              <td>{{ item.value4 }}</td>
-              <td>{{ item.value5 }}</td>
-              <td>{{ item.value6 }}</td>
-            </tr>
-          </table>
+          <el-scrollbar>
+            <table>
+              <tr>
+                <th>序号</th>
+                <th>名称</th>
+                <th>可租赁面积（平米）</th>
+                <th>总用电量（度）</th>
+                <th>单位面积用电量（度/平米）</th>
+                <th>总用水量（吨）</th>
+                <th>单位面积用水量（吨/平米）</th>
+              </tr>
+              <tr v-for="(item, index) in tableData2" :key="index">
+                <td>{{ index + 1 }}</td>
+                <td>{{ item.value1 }}</td>
+                <td>{{ item.value2 }}</td>
+                <td>{{ item.value3 }}</td>
+                <td>{{ item.value4 }}</td>
+                <td>{{ item.value5 }}</td>
+                <td>{{ item.value6 }}</td>
+              </tr>
+            </table>
+          </el-scrollbar>
         </div>
       </div>
     </section>
@@ -336,7 +344,7 @@ export default {
         height: 100%;
         display: flex;
         flex-direction: column;
-        overflow: scroll;
+        overflow: hidden;
 
         &:first-child {
           flex: 27;

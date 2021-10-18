@@ -57,18 +57,20 @@
         <div class="content">
           <span class="content_title">本级电耗:<span>1832.93</span> kwh</span>
           <div class="content_box">
-            <table>
-              <tr>
-                <th>分项名称</th>
-                <th>总量</th>
-                <th>占比（%）</th>
-              </tr>
-              <tr v-for="(item, index) in tableData1" :key="index">
-                <td>{{ item.project }}</td>
-                <td>{{ item.number }}</td>
-                <td>{{ item.unit }}</td>
-              </tr>
-            </table>
+            <el-scrollbar>
+              <table>
+                <tr>
+                  <th>分项名称</th>
+                  <th>总量</th>
+                  <th>占比（%）</th>
+                </tr>
+                <tr v-for="(item, index) in tableData1" :key="index">
+                  <td>{{ item.project }}</td>
+                  <td>{{ item.number }}</td>
+                  <td>{{ item.unit }}</td>
+                </tr>
+              </table>
+            </el-scrollbar>
           </div>
         </div>
       </div>
@@ -78,168 +80,168 @@
 
 <script>
 // import * as echarts from 'echarts'
-import moment from "moment";
-import LInput from "../components/LInput.vue";
-import LButton from "../components/LButton.vue";
+import moment from 'moment'
+import LInput from '../components/LInput.vue'
+import LButton from '../components/LButton.vue'
 
 export default {
-  name: "Compared",
+  name: 'Compared',
   components: {
     LInput,
-    LButton,
+    LButton
   },
-  data() {
+  data () {
     return {
       timer: null,
-      now: moment().format("YYYY-MM-DD hh:mm:ss"),
+      now: moment().format('YYYY-MM-DD hh:mm:ss'),
       tableData1: [
         {
-          project: "总占地面积",
-          number: "54512.00",
-          unit: "平米",
+          project: '总占地面积',
+          number: '54512.00',
+          unit: '平米'
         },
         {
-          project: "总占地面积",
-          number: "54512.00",
-          unit: "平米",
+          project: '总占地面积',
+          number: '54512.00',
+          unit: '平米'
         },
         {
-          project: "总占地面积",
-          number: "54512.00",
-          unit: "平米",
+          project: '总占地面积',
+          number: '54512.00',
+          unit: '平米'
         },
         {
-          project: "总占地面积",
-          number: "54512.00",
-          unit: "平米",
+          project: '总占地面积',
+          number: '54512.00',
+          unit: '平米'
         },
         {
-          project: "总占地面积",
-          number: "54512.00",
-          unit: "平米",
+          project: '总占地面积',
+          number: '54512.00',
+          unit: '平米'
         },
         {
-          project: "总占地面积",
-          number: "54512.00",
-          unit: "平米",
+          project: '总占地面积',
+          number: '54512.00',
+          unit: '平米'
         },
         {
-          project: "总占地面积",
-          number: "54512.00",
-          unit: "平米",
+          project: '总占地面积',
+          number: '54512.00',
+          unit: '平米'
         },
         {
-          project: "总占地面积",
-          number: "54512.00",
-          unit: "平米",
+          project: '总占地面积',
+          number: '54512.00',
+          unit: '平米'
         },
         {
-          project: "总占地面积",
-          number: "54512.00",
-          unit: "平米",
+          project: '总占地面积',
+          number: '54512.00',
+          unit: '平米'
         },
         {
-          project: "总占地面积",
-          number: "54512.00",
-          unit: "平米",
+          project: '总占地面积',
+          number: '54512.00',
+          unit: '平米'
         },
         {
-          project: "总占地面积",
-          number: "54512.00",
-          unit: "平米",
+          project: '总占地面积',
+          number: '54512.00',
+          unit: '平米'
         },
         {
-          project: "总占地面积",
-          number: "54512.00",
-          unit: "平米",
+          project: '总占地面积',
+          number: '54512.00',
+          unit: '平米'
         },
         {
-          project: "总占地面积",
-          number: "54512.00",
-          unit: "平米",
+          project: '总占地面积',
+          number: '54512.00',
+          unit: '平米'
         },
         {
-          project: "总占地面积",
-          number: "54512.00",
-          unit: "平米",
+          project: '总占地面积',
+          number: '54512.00',
+          unit: '平米'
         },
         {
-          project: "总占地面积",
-          number: "54512.00",
-          unit: "平米",
+          project: '总占地面积',
+          number: '54512.00',
+          unit: '平米'
         },
         {
-          project: "总占地面积",
-          number: "54512.00",
-          unit: "平米",
+          project: '总占地面积',
+          number: '54512.00',
+          unit: '平米'
         },
         {
-          project: "总占地面积",
-          number: "54512.00",
-          unit: "平米",
+          project: '总占地面积',
+          number: '54512.00',
+          unit: '平米'
         },
         {
-          project: "总占地面积",
-          number: "54512.00",
-          unit: "平米",
+          project: '总占地面积',
+          number: '54512.00',
+          unit: '平米'
         },
         {
-          project: "总占地面积",
-          number: "54512.00",
-          unit: "平米",
+          project: '总占地面积',
+          number: '54512.00',
+          unit: '平米'
         },
         {
-          project: "总占地面积",
-          number: "54512.00",
-          unit: "平米",
+          project: '总占地面积',
+          number: '54512.00',
+          unit: '平米'
         },
         {
-          project: "总占地面积",
-          number: "54512.00",
-          unit: "平米",
-        },
+          project: '总占地面积',
+          number: '54512.00',
+          unit: '平米'
+        }
       ],
 
       color: [
-        "rgba(22, 172, 142, 1)",
-        "rgba(0, 251, 183, 1)",
-        "rgba(248, 136, 42, 1)",
-        "rgba(20, 218, 255, 1)",
-        "rgba(6, 232, 219, 1)",
-        "rgba(22, 172, 142, 1)",
-        "rgba(0, 251, 183, 1)",
-        "rgba(248, 136, 42, 1)",
-        "rgba(20, 218, 255, 1)",
-        "rgba(6, 232, 219, 1)",
+        'rgba(22, 172, 142, 1)',
+        'rgba(0, 251, 183, 1)',
+        'rgba(248, 136, 42, 1)',
+        'rgba(20, 218, 255, 1)',
+        'rgba(6, 232, 219, 1)',
+        'rgba(22, 172, 142, 1)',
+        'rgba(0, 251, 183, 1)',
+        'rgba(248, 136, 42, 1)',
+        'rgba(20, 218, 255, 1)',
+        'rgba(6, 232, 219, 1)'
       ].reverse(),
       angle: 0,
 
-      chartInstance: null,
-    };
+      chartInstance: null
+    }
   },
 
   computed: {
-    defaultOption() {
+    defaultOption () {
       return {
         title: {
-          text: "{a|" + 15870 + "} \n {c|总电耗（kwh）}",
-          x: "center",
-          y: "center",
+          text: '{a|' + 15870 + '} \n {c|总电耗（kwh）}',
+          x: 'center',
+          y: 'center',
           textStyle: {
             rich: {
               a: {
                 fontSize: 46,
-                color: "#FFFFFF"
+                color: '#FFFFFF'
               },
 
               c: {
                 fontSize: 24,
-                color: "#6392D3",
+                color: '#6392D3',
                 // padding: [5,0],
                 marginTop: 24
-              },
-            },
-          },
+              }
+            }
+          }
         },
 
         legend: {
@@ -260,247 +262,247 @@ export default {
         series: [
           // 紫色
           {
-            name: "ring5",
-            type: "custom",
-            coordinateSystem: "none",
+            name: 'ring5',
+            type: 'custom',
+            coordinateSystem: 'none',
             renderItem: (params, api) => {
               return {
-                type: "arc",
+                type: 'arc',
                 shape: {
                   cx: api.getWidth() / 2,
                   cy: api.getHeight() / 2,
                   r: (Math.min(api.getWidth(), api.getHeight()) / 2) * 0.6,
                   startAngle: ((0 + this.angle) * Math.PI) / 180,
-                  endAngle: ((90 + this.angle) * Math.PI) / 180,
+                  endAngle: ((90 + this.angle) * Math.PI) / 180
                 },
                 style: {
-                  stroke: "#8383FA",
-                  fill: "transparent",
-                  lineWidth: 1.5,
+                  stroke: '#8383FA',
+                  fill: 'transparent',
+                  lineWidth: 1.5
                 },
-                silent: true,
-              };
+                silent: true
+              }
             },
-            data: [0],
+            data: [0]
           },
           {
-            name: "ring5", //紫点
-            type: "custom",
-            coordinateSystem: "none",
+            name: 'ring5', // 紫点
+            type: 'custom',
+            coordinateSystem: 'none',
             renderItem: (params, api) => {
-              let x0 = api.getWidth() / 2;
-              let y0 = api.getHeight() / 2;
-              let r = (Math.min(api.getWidth(), api.getHeight()) / 2) * 0.6;
-              let point = this.getCirlPoint(x0, y0, r, 90 + this.angle);
+              const x0 = api.getWidth() / 2
+              const y0 = api.getHeight() / 2
+              const r = (Math.min(api.getWidth(), api.getHeight()) / 2) * 0.6
+              const point = this.getCirlPoint(x0, y0, r, 90 + this.angle)
               return {
-                type: "circle",
+                type: 'circle',
                 shape: {
                   cx: point.x,
                   cy: point.y,
-                  r: 4,
+                  r: 4
                 },
                 style: {
-                  stroke: "#8450F9", //绿
-                  fill: "#8450F9",
+                  stroke: '#8450F9', // 绿
+                  fill: '#8450F9'
                 },
-                silent: true,
-              };
+                silent: true
+              }
             },
-            data: [0],
+            data: [0]
           },
           // 蓝色
 
           {
-            name: "ring5",
-            type: "custom",
-            coordinateSystem: "none",
+            name: 'ring5',
+            type: 'custom',
+            coordinateSystem: 'none',
             renderItem: (params, api) => {
               return {
-                type: "arc",
+                type: 'arc',
                 shape: {
                   cx: api.getWidth() / 2,
                   cy: api.getHeight() / 2,
                   r: (Math.min(api.getWidth(), api.getHeight()) / 2) * 0.6,
                   startAngle: ((180 + this.angle) * Math.PI) / 180,
-                  endAngle: ((270 + this.angle) * Math.PI) / 180,
+                  endAngle: ((270 + this.angle) * Math.PI) / 180
                 },
                 style: {
-                  stroke: "#4386FA",
-                  fill: "transparent",
-                  lineWidth: 1.5,
+                  stroke: '#4386FA',
+                  fill: 'transparent',
+                  lineWidth: 1.5
                 },
-                silent: true,
-              };
+                silent: true
+              }
             },
-            data: [0],
+            data: [0]
           },
           {
-            name: "ring5", // 蓝色
-            type: "custom",
-            coordinateSystem: "none",
+            name: 'ring5', // 蓝色
+            type: 'custom',
+            coordinateSystem: 'none',
             renderItem: (params, api) => {
-              let x0 = api.getWidth() / 2;
-              let y0 = api.getHeight() / 2;
-              let r = (Math.min(api.getWidth(), api.getHeight()) / 2) * 0.6;
-              let point = this.getCirlPoint(x0, y0, r, 180 + this.angle);
+              const x0 = api.getWidth() / 2
+              const y0 = api.getHeight() / 2
+              const r = (Math.min(api.getWidth(), api.getHeight()) / 2) * 0.6
+              const point = this.getCirlPoint(x0, y0, r, 180 + this.angle)
               return {
-                type: "circle",
+                type: 'circle',
                 shape: {
                   cx: point.x,
                   cy: point.y,
-                  r: 4,
+                  r: 4
                 },
                 style: {
-                  stroke: "#4386FA", //绿
-                  fill: "#4386FA",
+                  stroke: '#4386FA', // 绿
+                  fill: '#4386FA'
                 },
-                silent: true,
-              };
+                silent: true
+              }
             },
-            data: [0],
+            data: [0]
           },
 
           {
-            name: "ring5",
-            type: "custom",
-            coordinateSystem: "none",
+            name: 'ring5',
+            type: 'custom',
+            coordinateSystem: 'none',
             renderItem: (params, api) => {
               return {
-                type: "arc",
+                type: 'arc',
                 shape: {
                   cx: api.getWidth() / 2,
                   cy: api.getHeight() / 2,
                   r: (Math.min(api.getWidth(), api.getHeight()) / 2) * 0.65,
                   startAngle: ((270 + -this.angle) * Math.PI) / 180,
-                  endAngle: ((40 + -this.angle) * Math.PI) / 180,
+                  endAngle: ((40 + -this.angle) * Math.PI) / 180
                 },
                 style: {
-                  stroke: "#0CD3DB",
-                  fill: "transparent",
-                  lineWidth: 1.5,
+                  stroke: '#0CD3DB',
+                  fill: 'transparent',
+                  lineWidth: 1.5
                 },
-                silent: true,
-              };
+                silent: true
+              }
             },
-            data: [0],
+            data: [0]
           },
           // 橘色
 
           {
-            name: "ring5",
-            type: "custom",
-            coordinateSystem: "none",
+            name: 'ring5',
+            type: 'custom',
+            coordinateSystem: 'none',
             renderItem: (params, api) => {
               return {
-                type: "arc",
+                type: 'arc',
                 shape: {
                   cx: api.getWidth() / 2,
                   cy: api.getHeight() / 2,
                   r: (Math.min(api.getWidth(), api.getHeight()) / 2) * 0.65,
                   startAngle: ((90 + -this.angle) * Math.PI) / 180,
-                  endAngle: ((220 + -this.angle) * Math.PI) / 180,
+                  endAngle: ((220 + -this.angle) * Math.PI) / 180
                 },
                 style: {
-                  stroke: "#FF8E89",
-                  fill: "transparent",
-                  lineWidth: 1.5,
+                  stroke: '#FF8E89',
+                  fill: 'transparent',
+                  lineWidth: 1.5
                 },
-                silent: true,
-              };
+                silent: true
+              }
             },
-            data: [0],
+            data: [0]
           },
           {
-            name: "ring5",
-            type: "custom",
-            coordinateSystem: "none",
+            name: 'ring5',
+            type: 'custom',
+            coordinateSystem: 'none',
             renderItem: (params, api) => {
-              let x0 = api.getWidth() / 2;
-              let y0 = api.getHeight() / 2;
-              let r = (Math.min(api.getWidth(), api.getHeight()) / 2) * 0.65;
-              let point = this.getCirlPoint(x0, y0, r, 90 + -this.angle);
+              const x0 = api.getWidth() / 2
+              const y0 = api.getHeight() / 2
+              const r = (Math.min(api.getWidth(), api.getHeight()) / 2) * 0.65
+              const point = this.getCirlPoint(x0, y0, r, 90 + -this.angle)
               return {
-                type: "circle",
+                type: 'circle',
                 shape: {
                   cx: point.x,
                   cy: point.y,
-                  r: 4,
+                  r: 4
                 },
                 style: {
-                  stroke: "#FF8E89", //粉
-                  fill: "#FF8E89",
+                  stroke: '#FF8E89', // 粉
+                  fill: '#FF8E89'
                 },
-                silent: true,
-              };
+                silent: true
+              }
             },
-            data: [0],
+            data: [0]
           },
           {
-            name: "ring5", //绿点
-            type: "custom",
-            coordinateSystem: "none",
+            name: 'ring5', // 绿点
+            type: 'custom',
+            coordinateSystem: 'none',
             renderItem: (params, api) => {
-              let x0 = api.getWidth() / 2;
-              let y0 = api.getHeight() / 2;
-              let r = (Math.min(api.getWidth(), api.getHeight()) / 2) * 0.65;
-              let point = this.getCirlPoint(x0, y0, r, 270 + -this.angle);
+              const x0 = api.getWidth() / 2
+              const y0 = api.getHeight() / 2
+              const r = (Math.min(api.getWidth(), api.getHeight()) / 2) * 0.65
+              const point = this.getCirlPoint(x0, y0, r, 270 + -this.angle)
               return {
-                type: "circle",
+                type: 'circle',
                 shape: {
                   cx: point.x,
                   cy: point.y,
-                  r: 4,
+                  r: 4
                 },
                 style: {
-                  stroke: "#0CD3DB", //绿
-                  fill: "#0CD3DB",
+                  stroke: '#0CD3DB', // 绿
+                  fill: '#0CD3DB'
                 },
-                silent: true,
-              };
+                silent: true
+              }
             },
-            data: [0],
+            data: [0]
           },
           {
-            name: "pie",
-            type: "pie",
+            name: 'pie',
+            type: 'pie',
             clockWise: false,
             // radius: [40, 32],
-            radius: ["40%", "35%"],
+            radius: ['40%', '35%'],
             hoverAnimation: false,
             itemStyle: {
               normal: {
-                borderColor: "#0A1934",
+                borderColor: '#0A1934',
                 borderWidth: 5,
                 color: (params) => {
-                  return this.color[params.dataIndex];
-                },
-              },
+                  return this.color[params.dataIndex]
+                }
+              }
             },
             labelLine: {
-              show: false,
+              show: false
             },
-            data: this.realData,
+            data: this.realData
           },
           {
-            type: "pie",
+            type: 'pie',
             zlevel: 3,
             hoverAnimation: false,
-            radius: ["45%", "50%"],
+            radius: ['45%', '50%'],
             clockWise: false,
             labelLine: {
-              show: false,
+              show: false
             },
             label: {
-              show: false,
+              show: false
             },
-            data: this.datas,
-          },
-        ],
-      };
+            data: this.datas
+          }
+        ]
+      }
     },
 
-    datas() {
-      const result = [];
+    datas () {
+      const result = []
       for (let index = 0; index < 5; index++) {
         result.push(
           {
@@ -509,116 +511,116 @@ export default {
             name: index,
             itemStyle: {
               normal: {
-                color: this.color[index],
+                color: this.color[index]
                 // borderWidth: 10,
                 // borderColor: colorBorder[i]
-              },
-            },
+              }
+            }
           },
           {
             value: 2,
-            name: "",
+            name: '',
             itemStyle: {
               normal: {
                 label: {
-                  show: false,
+                  show: false
                 },
                 labelLine: {
-                  show: false,
+                  show: false
                 },
-                color: "rgba(0, 0, 0, 0)",
-                borderColor: "rgba(0, 0, 0, 0)",
-                borderWidth: 0,
-              },
-            },
+                color: 'rgba(0, 0, 0, 0)',
+                borderColor: 'rgba(0, 0, 0, 0)',
+                borderWidth: 0
+              }
+            }
           }
-        );
+        )
       }
-      return result;
+      return result
     },
 
-    realData() {
-      const result = [];
+    realData () {
+      const result = []
       for (let index = 0; index < 5; index++) {
         result.push(
           {
             name: index,
             data: 10,
             value: 1,
-            name: "10",
+            name: '10',
             itemStyle: {
               normal: {
-                color: this.color[index],
-              },
-            },
+                color: this.color[index]
+              }
+            }
           },
           {
             value: 45,
-            name: "",
+            name: '',
             itemStyle: {
               normal: {
                 label: {
-                  show: false,
+                  show: false
                 },
                 labelLine: {
-                  show: false,
+                  show: false
                 },
-                color: "rgba(0, 0, 0, 0)",
-                borderColor: "rgba(0, 0, 0, 0)",
-                borderWidth: 0,
-              },
-            },
+                color: 'rgba(0, 0, 0, 0)',
+                borderColor: 'rgba(0, 0, 0, 0)',
+                borderWidth: 0
+              }
+            }
           }
-        );
+        )
       }
-      return result;
-    },
-  },
-
-  mounted() {
-    this.timer = setInterval(() => {
-      this.now = moment().format("YYYY-MM-DD hh:mm:ss");
-    }, 1 * 1000);
-
-    this.$nextTick(() => {
-      this.chartInstance = this.$root.echarts.init(this.$refs.lineChart);
-
-      const option = this.defaultOption;
-      this.chartInstance.setOption(option);
-
-      let timerId;
-
-      if (timerId) {
-        clearInterval(timerId);
-      }
-      timerId = setInterval(() => {
-        this.draw();
-      }, 100);
-    });
-  },
-  methods: {
-    getCirlPoint(x0, y0, r, angle) {
-      let x1 = x0 + r * Math.cos((angle * Math.PI) / 180);
-      let y1 = y0 + r * Math.sin((angle * Math.PI) / 180);
-      return {
-        x: x1,
-        y: y1,
-      };
-    },
-
-    draw() {
-      this.angle = this.angle + 3;
-      this.chartInstance.setOption(this.defaultOption, true);
-      //window.requestAnimationFrame(draw);
-    },
-  },
-  beforeUnmount() {
-    if (this.timer) {
-      window.clearInterval(this.timer);
-      this.timer = null;
+      return result
     }
   },
-};
+
+  mounted () {
+    this.timer = setInterval(() => {
+      this.now = moment().format('YYYY-MM-DD hh:mm:ss')
+    }, 1 * 1000)
+
+    this.$nextTick(() => {
+      this.chartInstance = this.$root.echarts.init(this.$refs.lineChart)
+
+      const option = this.defaultOption
+      this.chartInstance.setOption(option)
+
+      let timerId
+
+      if (timerId) {
+        clearInterval(timerId)
+      }
+      timerId = setInterval(() => {
+        this.draw()
+      }, 100)
+    })
+  },
+  methods: {
+    getCirlPoint (x0, y0, r, angle) {
+      const x1 = x0 + r * Math.cos((angle * Math.PI) / 180)
+      const y1 = y0 + r * Math.sin((angle * Math.PI) / 180)
+      return {
+        x: x1,
+        y: y1
+      }
+    },
+
+    draw () {
+      this.angle = this.angle + 3
+      this.chartInstance.setOption(this.defaultOption, true)
+      // window.requestAnimationFrame(draw);
+    }
+  },
+  beforeUnmount () {
+    if (this.timer) {
+      window.clearInterval(this.timer)
+      this.timer = null
+    }
+  }
+}
 </script>
 <style lang="less" scoped>
 .screen-container {
@@ -795,7 +797,7 @@ export default {
           display: flex;
           align-items: center;
           justify-content: center;
-          overflow: scroll;
+          overflow: hidden;
 
           table {
             width: 100%;

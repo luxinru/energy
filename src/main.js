@@ -4,6 +4,8 @@ import router from './router'
 import store from './store'
 import * as echarts from 'echarts'
 // import axios from 'axios'
+import ElementPlus from 'element-plus'
+import 'element-plus/dist/index.css'
 
 // 引入字体的文件
 import './assets/font/iconfont.css'
@@ -13,10 +15,11 @@ import './assets/css/global.less'
 import countTo from 'vue3-count-to'
 
 const app = createApp(App)
-    .use(store)
-    .use(router)
-    .use(countTo)
-    .mount('#app')
+  .use(store)
+  .use(router)
+  .use(ElementPlus)
+  .use(countTo)
+  .mount('#app')
 app.echarts = echarts
 // // 请求基准路径的配置
 // axios.defaults.baseURL = 'http://127.0.0.1:8888/api/'
