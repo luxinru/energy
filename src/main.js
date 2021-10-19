@@ -6,6 +6,7 @@ import * as echarts from 'echarts'
 // import axios from 'axios'
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
+import zhCn from 'element-plus/es/locale/lang/zh-cn'
 
 // 引入字体的文件
 import './assets/font/iconfont.css'
@@ -19,7 +20,9 @@ import countTo from 'vue3-count-to'
 const app = createApp(App)
   .use(store)
   .use(router)
-  .use(ElementPlus)
+  .use(ElementPlus, {
+    locale: zhCn
+  })
   .use(countTo)
   .mount('#app')
 app.echarts = echarts

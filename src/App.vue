@@ -9,8 +9,7 @@
     >
       <el-menu
         active-text-color="#ffd04b"
-        background-color="RGBA(6, 11, 42, 1)"
-        class="el-menu-vertical-demo"
+        background-color="rgba(19, 27, 60, 0.95)"
         default-active="2"
         text-color="#fff"
       >
@@ -88,7 +87,7 @@ export default {
     opacity: 0;
   }
   .drawer {
-    background: RGBA(6, 11, 42, 1);
+    background: rgba(19, 27, 60, 0.95);
   }
 
 }

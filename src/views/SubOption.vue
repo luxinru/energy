@@ -13,9 +13,7 @@
     <section class="search_bar">
       <LSelect label="能耗种类" placeholder="请选择能耗种类" :width="340"></LSelect>
       <LSelect label="对象选择" placeholder="请选择对象选择" :width="340" style="margin-left: 16px;"></LSelect>
-      <LInput label="查询日期" placeholder="请选择查询日期" :width="340" style="margin-left: 16px;"></LInput>
-      <LInput label="" placeholder="2021-10-08" :width="340" style="margin-left: 16px;"></LInput>
-      <LInput label="" placeholder="2021-10-09" :width="340" style="margin-left: 16px;"></LInput>
+      <LDateTimeSelect label="查询日期" :width="340" style="margin-left: 16px;"></LDateTimeSelect>
       <LButton label="搜索" style="margin-left: 16px;"></LButton>
     </section>
 
@@ -114,12 +112,14 @@ import moment from 'moment'
 import LInput from '../components/LInput.vue'
 import LSelect from '../components/LSelect.vue'
 import LButton from '../components/LButton.vue'
+import LDateTimeSelect from '../components/LDateTimeSelect.vue'
 
 export default {
   components: {
     LInput,
     LSelect,
-    LButton
+    LButton,
+    LDateTimeSelect
   },
   data () {
     return {
