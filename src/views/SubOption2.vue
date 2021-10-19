@@ -804,9 +804,6 @@ export default {
         .content_box {
           flex: 1;
           background: rgba(93, 113, 212, 0.05);
-          display: flex;
-          align-items: center;
-          justify-content: center;
           overflow: hidden;
 
           table {
