@@ -12,6 +12,8 @@ import './assets/font/iconfont.css'
 // 引入全局的样式文件
 import './assets/css/global.less'
 
+import '../src/assets/css/element-variables.scss'
+
 import countTo from 'vue3-count-to'
 
 const app = createApp(App)

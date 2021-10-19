@@ -11,8 +11,8 @@
     </header>
 
     <section class="search_bar">
-      <LInput label="能耗种类" placeholder="请选择能耗种类" :width="340"></LInput>
-      <LInput label="对象选择" placeholder="请选择对象选择" :width="340" style="margin-left: 16px;"></LInput>
+      <LSelect label="能耗种类" placeholder="请选择能耗种类" :width="340"></LSelect>
+      <LSelect label="对象选择" placeholder="请选择对象选择" :width="340" style="margin-left: 16px;"></LSelect>
       <LInput label="查询日期" placeholder="请选择查询日期" :width="340" style="margin-left: 16px;"></LInput>
       <LInput label="" placeholder="2021-10-08" :width="340" style="margin-left: 16px;"></LInput>
       <LInput label="" placeholder="2021-10-09" :width="340" style="margin-left: 16px;"></LInput>
@@ -112,11 +112,13 @@
 <script>
 import moment from 'moment'
 import LInput from '../components/LInput.vue'
+import LSelect from '../components/LSelect.vue'
 import LButton from '../components/LButton.vue'
 
 export default {
   components: {
     LInput,
+    LSelect,
     LButton
   },
   data () {
