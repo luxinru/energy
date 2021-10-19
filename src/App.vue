@@ -4,8 +4,30 @@
     <el-drawer
       v-model="isShowDrawer"
       direction="ltr"
+      custom-class="drawer"
+      size="20%"
     >
-      <span>Hi, there!</span>
+      <el-menu
+        active-text-color="#ffd04b"
+        background-color="RGBA(6, 11, 42, 1)"
+        class="el-menu-vertical-demo"
+        default-active="2"
+        text-color="#fff"
+      >
+        <el-sub-menu index="1">
+          <template #title>
+            <i class="el-icon-location"></i>
+            <span>所有页面</span>
+          </template>
+          <el-menu-item index="1-1" @click="onItemClick(1)">页面一</el-menu-item>
+          <el-menu-item index="1-2" @click="onItemClick(2)">页面二</el-menu-item>
+          <el-menu-item index="1-3" @click="onItemClick(3)">页面三</el-menu-item>
+          <el-menu-item index="1-4" @click="onItemClick(4)">页面四</el-menu-item>
+          <el-menu-item index="1-5" @click="onItemClick(5)">页面五</el-menu-item>
+          <el-menu-item index="1-6" @click="onItemClick(6)">页面六</el-menu-item>
+          <el-menu-item index="1-7" @click="onItemClick(7)">页面七</el-menu-item>
+        </el-sub-menu>
+      </el-menu>
     </el-drawer>
     <!-- 路由占位符 -->
     <router-view />
@@ -22,6 +44,32 @@ export default {
   methods: {
     onMouseenter () {
       this.isShowDrawer = true
+    },
+
+    onItemClick (index) {
+      switch (index) {
+        case 1:
+          this.$router.push('/home')
+          break
+        case 2:
+          this.$router.push('/sub-option')
+          break
+        case 3:
+          this.$router.push('/screen')
+          break
+        case 4:
+          this.$router.push('/inquire')
+          break
+        case 5:
+          this.$router.push('/compared')
+          break
+        case 6:
+          this.$router.push('/sub-option2')
+          break
+        case 7:
+          this.$router.push('/cockpit')
+          break
+      }
     }
   }
 }
@@ -38,6 +86,9 @@ export default {
     bottom: 0;
     width: 5px;
     opacity: 0;
+  }
+  .drawer {
+    background: RGBA(6, 11, 42, 1);
   }
 
 }
