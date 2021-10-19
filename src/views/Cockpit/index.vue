@@ -19,9 +19,23 @@
           <Chart2></Chart2>
         </ContentBox>
       </section>
-      <section class="box"></section>
+      <section class="box">
+        <ContentBox :height="'255px'">
+          <Chart3></Chart3>
+        </ContentBox>
 
-      <section class="btns"></section>
+        <ContentBox style="margin-top: 16px;flex: 1;">
+          <Chart4></Chart4>
+        </ContentBox>
+
+        <ContentBox :height="'308px'" style="margin-top: 16px;">
+          <Chart5></Chart5>
+        </ContentBox>
+      </section>
+
+      <section class="btns">
+        <div :class="index === currentIndex ? 'btn active' : 'btn'" v-for="index in 5" :key="index" @click="currentIndex = index">导航切换</div>
+      </section>
     </div>
   </div>
 </template>
@@ -31,18 +45,25 @@ import moment from 'moment'
 import ContentBox from './components/content-box.vue'
 import Chart1 from './components/chart1.vue'
 import Chart2 from './components/chart2.vue'
+import Chart3 from './components/chart3.vue'
+import Chart4 from './components/chart4.vue'
+import Chart5 from './components/chart5.vue'
 
 export default {
   name: 'Cockpit',
   components: {
     ContentBox,
     Chart1,
-    Chart2
+    Chart2,
+    Chart3,
+    Chart4,
+    Chart5
   },
   data () {
     return {
       timer: null,
-      now: moment().format('YYYY-MM-DD hh:mm:ss')
+      now: moment().format('YYYY-MM-DD hh:mm:ss'),
+      currentIndex: 1
     }
   },
 
@@ -152,7 +173,34 @@ export default {
       box-sizing: border-box;
       display: flex;
       align-items: center;
+      justify-content: center;
       z-index: 0;
+
+      .btn {
+        width: 115px;
+        height: 40px;
+        margin-left: 30px;
+        background: url('../../assets/img/组 8 拷贝.png');
+        background-size: 100% 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        font-weight: 400;
+        color: #FEFEFE;
+        cursor: pointer;
+
+        &:first-child {
+          margin-left: 0;
+        }
+      }
+
+      .active {
+        background: url('../../assets/img/组 8.png');
+        font-size: 18px;
+        font-weight: bold;
+        color: #FFFFFF;
+      }
     }
   }
 
