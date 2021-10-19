@@ -27,7 +27,13 @@
     <section class="container">
       <div class="box">
         <div class="chart">
-          <div class="btns">按钮组</div>
+          <div class="btns">
+            <img src="../assets/img/矢量智能对象.png" alt="">
+            <img src="../assets/img/矢量智能对象1.png" alt="">
+            <img src="../assets/img/矢量智能对象2.png" alt="">
+            <img src="../assets/img/矢量智能对象3.png" alt="">
+            <img src="../assets/img/矢量智能对象4.png" alt="">
+          </div>
           <div class="chart_box" ref="lineChart" ></div>
         </div>
 
@@ -366,6 +372,13 @@ export default {
           display: flex;
           align-items: center;
           justify-content: flex-end;
+
+          img {
+            width: 17px;
+            height: 17px;
+            margin-left: 24px;
+            cursor: pointer;
+          }
         }
 
         .chart_box{
