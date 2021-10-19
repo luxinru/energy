@@ -109,14 +109,12 @@
 
 <script>
 import moment from 'moment'
-import LInput from '../components/LInput.vue'
 import LSelect from '../components/LSelect.vue'
-import LButton from '../components/LButton.vue'
 import LDateTimeSelect from '../components/LDateTimeSelect.vue'
+import LButton from '../components/LButton.vue'
 
 export default {
   components: {
-    LInput,
     LSelect,
     LButton,
     LDateTimeSelect

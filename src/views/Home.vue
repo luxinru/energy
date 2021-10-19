@@ -15,7 +15,7 @@
       <LInput label="地点" placeholder="请输入地点" style="margin-left: 16px;"></LInput>
       <LInput label="项目类型" placeholder="请输入项目类型" style="margin-left: 16px;"></LInput>
       <LInput label="工程名称" placeholder="请输入工程名称" style="margin-left: 16px;"></LInput>
-      <LInput label="报警状态" placeholder="请输入报警状态" style="margin-left: 16px;"></LInput>
+      <LSelect label="报警状态" placeholder="请选择报警状态" style="margin-left: 16px;"></LSelect>
       <LButton label="搜索" style="margin-left: 16px;"></LButton>
       <LButton label="列表模式" style="margin-left: 6px;"></LButton>
     </section>
@@ -42,11 +42,13 @@
 <script>
 import moment from 'moment'
 import LInput from '../components/LInput.vue'
+import LSelect from '../components/LSelect.vue'
 import LButton from '../components/LButton.vue'
 
 export default {
   components: {
     LInput,
+    LSelect,
     LButton
   },
   data () {
