@@ -259,7 +259,7 @@ export default {
   background-size: 100% 100%;
   color: #fff;
   box-sizing: border-box;
-  overflow-y: scroll;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
 

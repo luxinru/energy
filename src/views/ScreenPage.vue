@@ -377,6 +377,7 @@ export default {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 .screen-header {
   width: 100%;

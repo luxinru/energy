@@ -45,7 +45,6 @@ export default {
 
   mounted () {
     window.onresize = () => {
-      console.log('onresizeonresizeonresizeonresize')
       location.reload()
     }
   },
@@ -87,9 +86,12 @@ export default {
 <style lang="less">
 #app {
   position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 
   .rightSide {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     bottom: 0;
