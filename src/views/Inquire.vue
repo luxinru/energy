@@ -2,7 +2,7 @@
   <div class="screen-container">
     <header class="screen-header">
       <div>
-        <img src="static/img/top.png" alt="" />
+        <img src="../assets/img/top.png" alt="" />
       </div>
       <span class="title">XXX能源管理—能耗查询</span>
       <div class="title-right">
@@ -11,8 +11,8 @@
     </header>
 
     <section class="search_bar">
-      <LInput label="地区" placeholder="请输入地区"></LInput>
       <LSelect label="能耗种类" placeholder="请选择能耗种类"></LSelect>
+      <LSelect label="能耗种类" placeholder="请选择能耗种类" style="margin-left: 16px;"></LSelect>
       <LSelect label="对象选择" placeholder="请选择对象选择" style="margin-left: 16px;"></LSelect>
       <LDateTimeSelect label="查询日期" style="margin-left: 16px;"></LDateTimeSelect>
       <LButton label="搜索" style="margin-left: 16px;"></LButton>
@@ -59,7 +59,7 @@
 <script>
 import * as echarts from 'echarts'
 import moment from 'moment'
-import LInput from '../components/LInput.vue'
+// import LInput from '../components/LInput.vue'
 import LSelect from '../components/LSelect.vue'
 import LDateTimeSelect from '../components/LDateTimeSelect.vue'
 import LButton from '../components/LButton.vue'
@@ -68,7 +68,7 @@ import QuotaChart from '../components/quota-chart.vue'
 
 export default {
   components: {
-    LInput,
+    // LInput,
     LSelect,
     LDateTimeSelect,
     LButton,

@@ -2,7 +2,7 @@
   <div class="screen-container">
     <header class="screen-header">
       <div>
-        <img src="static/img/top.png" alt="" />
+        <img src="../assets/img/top.png" alt="" />
       </div>
       <span class="title">XXX能源管理—GIS地图</span>
       <div class="title-right">

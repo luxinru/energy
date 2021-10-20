@@ -92,5 +92,9 @@ export default {
     background: rgba(19, 27, 60, 0.95);
   }
 
+  .el-menu-item:hover {
+    background: rgba(84, 122, 179, 0.5);
+  }
+
 }
 </style>

@@ -2,10 +2,10 @@
   <div class="screen-container">
     <header class="screen-header">
       <div>
-        <img src="static/img/top.png" alt="" />
+        <img src="../assets/img/top.png" alt="" />
       </div>
       <!-- <span class="logo">
-        <img src="static/img/logo1.png" alt="" />
+        <img src="../assets/img/logo1.png" alt="" />
       </span> -->
       <span class="title">XXX能源管理—驾驶舱</span>
       <div class="title-right">
