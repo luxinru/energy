@@ -21,14 +21,14 @@ export default {
     },
     width: {
       type: Number,
-      default: 320
+      default: 330
     }
   }
 }
 </script>
 <style lang="less" scoped>
 .LInput_root {
-  height: 46px;
+  height: 40px;
   background-image: url('../assets/img/1.png');
   background-size: 100% 100%;
   display: flex;

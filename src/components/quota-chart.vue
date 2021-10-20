@@ -147,6 +147,10 @@ export default {
 
       const option = this.defaultOption
       this.chartInstance.setOption(option)
+
+      window.onresize = () => {
+        this.chartInstance.resize()
+      }
     })
   },
   methods: {

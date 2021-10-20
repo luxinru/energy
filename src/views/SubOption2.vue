@@ -11,9 +11,20 @@
     </header>
 
     <section class="search_bar">
-      <LSelect label="能耗种类" placeholder="请选择能耗种类" :width="340"></LSelect>
-      <LSelect label="对象选择" placeholder="请选择对象选择" :width="340" style="margin-left: 16px;"></LSelect>
-      <LDateTimeSelect label="查询日期" :width="340" style="margin-left: 16px;"></LDateTimeSelect>
+      <LInput label="地区" placeholder="请输入地区"></LInput>
+      <LSelect
+        label="能耗种类"
+        placeholder="请选择能耗种类"
+      ></LSelect>
+      <LSelect
+        label="对象选择"
+        placeholder="请选择对象选择"
+        style="margin-left: 16px"
+      ></LSelect>
+      <LDateTimeSelect
+        label="查询日期"
+        style="margin-left: 16px"
+      ></LDateTimeSelect>
       <LButton label="搜索" style="margin-left: 16px"></LButton>
     </section>
 
@@ -26,29 +37,29 @@
       <div class="box">
         <div class="chart">
           <div class="btns">
-            <img src="../assets/img/矢量智能对象.png" alt="">
-            <img src="../assets/img/矢量智能对象3.png" alt="">
-            <img src="../assets/img/矢量智能对象4.png" alt="">
+            <img src="../assets/img/矢量智能对象.png" alt="" />
+            <img src="../assets/img/矢量智能对象3.png" alt="" />
+            <img src="../assets/img/矢量智能对象4.png" alt="" />
           </div>
           <div class="chart_box" ref="lineChart"></div>
         </div>
         <div class="content">
           <span class="content_title">本级电耗:<span>1832.93</span> kwh</span>
           <div class="content_box">
-            <el-scrollbar>
-              <table>
-                <tr>
-                  <th>分项名称</th>
-                  <th>总量</th>
-                  <th>占比（%）</th>
-                </tr>
+            <table>
+              <tr>
+                <th>分项名称</th>
+                <th>总量</th>
+                <th>占比（%）</th>
+              </tr>
+              <el-scrollbar>
                 <tr v-for="(item, index) in tableData1" :key="index">
                   <td>{{ item.project }}</td>
                   <td>{{ item.number }}</td>
                   <td>{{ item.unit }}</td>
                 </tr>
-              </table>
-            </el-scrollbar>
+              </el-scrollbar>
+            </table>
           </div>
         </div>
       </div>
@@ -59,6 +70,7 @@
 <script>
 // import * as echarts from 'echarts'
 import moment from 'moment'
+import LInput from '../components/LInput.vue'
 import LButton from '../components/LButton.vue'
 import LSelect from '../components/LSelect.vue'
 import LDateTimeSelect from '../components/LDateTimeSelect.vue'
@@ -66,6 +78,7 @@ import LDateTimeSelect from '../components/LDateTimeSelect.vue'
 export default {
   name: 'Compared',
   components: {
+    LInput,
     LSelect,
     LDateTimeSelect,
     LButton
@@ -527,7 +540,6 @@ export default {
             name: index,
             data: 10,
             value: 1,
-            name: '10',
             itemStyle: {
               normal: {
                 color: this.color[index]
@@ -568,7 +580,7 @@ export default {
       const option = this.defaultOption
       this.chartInstance.setOption(option)
 
-      let timerId
+      let timerId = null
 
       if (timerId) {
         clearInterval(timerId)
@@ -607,8 +619,8 @@ export default {
   width: 100%;
   height: 100%;
   padding: 0 20px;
-  background: url("../../public/static/img/bj.jpg") no-repeat;
-  // background: url("../../public/static/img/first.png") no-repeat;
+  background: url('../assets/img/bj.jpg') no-repeat;
+  // background: url("../assets/img/first.png") no-repeat;
   background-size: 100% 100%;
   color: #fff;
   box-sizing: border-box;
@@ -677,7 +689,7 @@ export default {
   .title_bar {
     width: max-content;
     height: 46px;
-    background-image: url("../assets/img/组 1.png");
+    background-image: url('../assets/img/组 1.png');
     background-size: 100% 100%;
     padding: 0 80px 13px 30px;
     box-sizing: border-box;
@@ -716,7 +728,7 @@ export default {
 
     .box {
       flex: 1;
-      background: url("../assets/img/2 拷贝 4.png");
+      background: url('../assets/img/2 拷贝 4.png');
       background-size: 100% 100%;
       background-repeat: no-repeat;
       margin-top: 20px;

@@ -87,7 +87,7 @@ const getPie3D = (pieData, internalDiameterRatio, distance, alpha, pieHeight, op
       show: true,
       data: legendData,
       orient: 'vertical',
-      right: '15%',
+      right: '10%',
       top: 'center',
       itemGap: 10,
       textStyle: {
@@ -96,8 +96,8 @@ const getPie3D = (pieData, internalDiameterRatio, distance, alpha, pieHeight, op
       icon: 'circle',
       formatter: function (param) {
         const item = legendBfb.filter(item => item.name === param)[0]
-        // const bfs = fomatFloat(item.value * 100, 2) + '%'
-        return `${item.name}`
+        const bfs = fomatFloat(item.value * 100, 2) + '%'
+        return `${item.name} ${bfs}`
       }
     },
     labelLine: {

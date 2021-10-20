@@ -35,7 +35,7 @@
                   <li>
                     <span class="list-l">总耗能</span>
                     <span class="list-c">
-                      <img src="../../public/static/img/icon_hn.png" alt="" />
+                      <img src="../assets/img/icon_hn.png" alt="" />
                     </span>
                     <div class="list-r">
                       <p class="num-t">
@@ -61,7 +61,7 @@
                   <li>
                     <span class="list-l">水 </span>
                     <span class="list-c">
-                      <img src="../../public/static/img/icon_shui.png" alt="" />
+                      <img src="../assets/img/icon_shui.png" alt="" />
                     </span>
                     <div class="list-r">
                       <p class="num-t">
@@ -85,7 +85,7 @@
                   <li>
                     <span class="list-l">电 </span>
                     <span class="list-c">
-                      <img src="../../public/static/img/icon_dian.png" alt="" />
+                      <img src="../assets/img/icon_dian.png" alt="" />
                     </span>
                     <div class="list-r">
                       <p class="num-t">
@@ -129,14 +129,14 @@
           <div class="map-allter">
             <div class="map-allter-t">
               <span>
-                <img src="../../public/static/img/icon1.png" alt="" />
+                <img src="../assets/img/icon1.png" alt="" />
                 风险预警
               </span>
               <span> 能耗消耗过高 </span>
             </div>
             <div class="map-allter-b">
               <span>
-                <img src="../../public/static/img/dian.png" alt="" />
+                <img src="../assets/img/dian.png" alt="" />
               </span>
             </div>
           </div>
@@ -168,7 +168,7 @@
                 <ul>
                   <li>
                     <span class="list-c">
-                      <img src="../../public/static/img/icon_y.png" alt="" />
+                      <img src="../assets/img/icon_y.png" alt="" />
                     </span>
                     <div class="list-r">
                       <p class="num-t">
@@ -191,7 +191,7 @@
                   </li>
                   <li>
                     <span class="list-c">
-                      <img src="../../public/static/img/icon_m.png" alt="" />
+                      <img src="../assets/img/icon_m.png" alt="" />
                     </span>
                     <div class="list-r">
                       <p class="num-t">
@@ -216,7 +216,7 @@
                   </li>
                   <li>
                     <span class="list-c">
-                      <img src="../../public/static/img/icon_d.png" alt="" />
+                      <img src="../assets/img/icon_d.png" alt="" />
                     </span>
                     <div class="list-r">
                       <p class="num-t">
@@ -266,7 +266,7 @@
                   </li>
                   <li>
                     <span class="list-l">
-                      <img src="../../public/static/img/icon_tq.png" alt="" />
+                      <img src="../assets/img/icon_tq.png" alt="" />
                     </span>
                     <span class="list-r"> 22℃ </span>
                   </li>
@@ -320,7 +320,7 @@ import Eone from '@/components/Eone.vue'
 import Etwo from '@/components/Etwo.vue'
 import dline from '@/components/dline.vue'
 
-import moment from "moment";
+import moment from 'moment'
 
 export default {
   components: {
@@ -329,13 +329,13 @@ export default {
     Ethree,
     Efour,
     Eone,
-    Etwo,
+    Etwo
     // Seller
   },
-  data() {
+  data () {
     return {
       filterData: {
-        navTab: ['电', '水'],
+        navTab: ['电', '水']
       },
       currentSort: 0,
       totalEnergy: 1568, // 总能耗
@@ -343,7 +343,7 @@ export default {
       water: 1000, // 水
       isRefresh: Date.now(),
       timer: null,
-      now: moment().format('YYYY-MM-DD hh:mm:ss'),
+      now: moment().format('YYYY-MM-DD hh:mm:ss')
     }
   },
   mounted () {
@@ -351,18 +351,18 @@ export default {
       this.now = moment().format('YYYY-MM-DD hh:mm:ss')
     }, 1 * 1000)
   },
-  beforeDestroy () {
+  beforeUnmount () {
     if (this.timer) {
       window.clearInterval(this.timer)
       this.timer = null
     }
   },
   methods: {
-    active(index) {
+    active (index) {
       this.currentSort = index
       this.isRefresh = Date.now()
-    },
-  },
+    }
+  }
 }
 </script>
 <style lang="less" scoped>
@@ -370,12 +370,11 @@ export default {
   width: 100%;
   height: 100%;
   padding: 0 20px;
-  background: url('../../public/static/img/bj.jpg') no-repeat;
-  // background: url("../../public/static/img/first.png") no-repeat;
+  background: url('../assets/img/bj.jpg') no-repeat;
+  // background: url("../assets/img/first.png") no-repeat;
   background-size: 100% 100%;
   color: #fff;
   box-sizing: border-box;
-  overflow-y: scroll;
   display: flex;
   flex-direction: column;
 }
@@ -479,7 +478,7 @@ export default {
       width: 100%;
       height: 630px;
       position: relative;
-      background: url(../../public/static/img/map.png) no-repeat;
+      background: url('../assets/img/map.png') no-repeat;
       background-size: 100% 100%;
       position: relative;
       .map-allter {
@@ -491,7 +490,7 @@ export default {
         .map-allter-t {
           width: 193px;
           height: 103px;
-          background: url(../../public/static/img/tip_box.png) no-repeat;
+          background: url(../assets/img/tip_box.png) no-repeat;
           background-size: 100% 100%;
           display: flex;
           flex-direction: column;
@@ -525,7 +524,7 @@ export default {
       flex-direction: column;
       .box-con {
         height: 269px;
-        background: url('../../public/static/img/box_center.png') no-repeat;
+        background: url('../assets/img/box_center.png') no-repeat;
         background-size: 100% 100%;
         .con {
           height: 253px;
@@ -545,7 +544,7 @@ export default {
               overflow: hidden;
               display: flex;
               align-items: center;
-              background: url('../../public/static/img/bjt.png');
+              background: url('../assets/img/bjt.png');
               background-size: 100% 100%;
               top: 15px;
               left: 8%;
@@ -617,7 +616,7 @@ export default {
     font-size: 14px;
     color: #b8f9ff;
     padding-left: 39px;
-    background: url('../../public/static/img/box-top.png') no-repeat;
+    background: url('../assets/img/box-top.png') no-repeat;
     box-sizing: border-box;
     display: flex;
     .tab {
@@ -646,7 +645,7 @@ export default {
     width: 100%;
     padding: 6px 0 6px 10px;
     box-sizing: border-box;
-    background: url('../../public/static/img/box-bot.png') no-repeat;
+    background: url('../assets/img/box-bot.png') no-repeat;
     background-size: 100% 100%;
     .con {
       height: 197px;

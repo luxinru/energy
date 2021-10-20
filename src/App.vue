@@ -5,13 +5,15 @@
       v-model="isShowDrawer"
       direction="ltr"
       custom-class="drawer"
-      size="20%"
+      size="10%"
     >
       <el-menu
         active-text-color="#ffd04b"
         background-color="rgba(19, 27, 60, 0.95)"
         default-active="2"
         text-color="#fff"
+
+        style="border-right: none;"
       >
         <el-sub-menu index="1">
           <template #title>

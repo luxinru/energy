@@ -24,14 +24,14 @@
       <div class="map-allter">
         <div class="map-allter-t">
           <span>
-            <img src="../../public/static/img/icon1.png" alt="" />
+            <img src="../assets/img/icon1.png" alt="" />
             风险预警
           </span>
           <span> 能耗消耗过高 </span>
         </div>
         <div class="map-allter-b">
           <span>
-            <img src="../../public/static/img/dian.png" alt="" />
+            <img src="../assets/img/dian.png" alt="" />
           </span>
         </div>
       </div>
@@ -76,7 +76,7 @@ export default {
   height: 100%;
   padding: 0 20px;
   background: url('../assets/img/bj.png') no-repeat;
-  // background: url("../../public/static/img/first.png") no-repeat;
+  // background: url("../assets/img/first.png") no-repeat;
   background-size: 100% 100%;
   color: #fff;
   box-sizing: border-box;
@@ -137,7 +137,7 @@ export default {
 
   .search_bar {
     width: 100%;
-    height: 46px;
+    height: 40px;
     display: flex;
     align-items: center;
   }
@@ -153,7 +153,7 @@ export default {
       .map-allter-t {
         width: 193px;
         height: 103px;
-        background: url(../../public/static/img/tip_box.png) no-repeat;
+        background: url(../assets/img/tip_box.png) no-repeat;
         background-size: 100% 100%;
         display: flex;
         flex-direction: column;

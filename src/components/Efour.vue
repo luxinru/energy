@@ -56,8 +56,8 @@ export default {
     this.initChart()
 
     // 根据窗口变化自动调节图表大小
-    window.onresize = function () {
-      //   that.changeSize()
+    window.onresize = () => {
+      this.changeSize()
     }
   },
   methods: {
@@ -69,39 +69,9 @@ export default {
         }
         item.label = {
           show: false
-          // normal: {
-          //   show: true,
-          //   color: color[index],
-          //   formatter: ['{b|{b}}', '{c|{c}}{b|kecg}', '{d|{d}%}'].join('\n'), // 用\n来换行
-          //   rich: {
-          //     b: {
-          //       color: '#fff',
-          //       lineHeight: 25,
-          //       align: 'left'
-          //     },
-          //     c: {
-          //       fontSize: 22,
-          //       color: '#fff',
-          //       textShadowColor: '#1c90a6',
-          //       textShadowOffsetX: 0,
-          //       textShadowOffsetY: 2,
-          //       textShadowBlur: 5
-          //     },
-          //     d: {
-          //       color: color[index],
-          //       align: 'left'
-          //     }
-          //   }
-          // }
         }
         item.labelLine = {
           show: false
-          // normal: {
-          //   lineStyle: {
-          //     width: 1,
-          //     color: 'rgba(255,255,255,0.7)'
-          //   }
-          // }
         }
       })
     },

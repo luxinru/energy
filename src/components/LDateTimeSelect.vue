@@ -6,6 +6,7 @@
       type="datetimerange"
       range-separator="To"
       size="mini"
+      style="flex: 1;"
       prefix-icon="LDateTimeSelect_root_prefix-icon"
       start-placeholder="开始时间"
       end-placeholder="结束时间"
@@ -26,7 +27,7 @@ export default {
     },
     width: {
       type: Number,
-      default: 320
+      default: 330
     }
   },
 
@@ -56,13 +57,14 @@ input {
 </style>
 <style lang="less" scoped>
 .LDateTimeSelect_root {
-  height: 46px;
+  height: 40px;
   background-image: url('../assets/img/1.png');
   background-size: 100% 100%;
   display: flex;
   align-items: center;
   padding: 0 6px 10px 20px;
   box-sizing: border-box;
+  justify-content: space-between;
 
   .label {
     font-size: 15px;

@@ -11,9 +11,10 @@
     </header>
 
     <section class="search_bar">
-      <LSelect label="能耗种类" placeholder="请选择能耗种类" :width="340"></LSelect>
-      <LSelect label="对象选择" placeholder="请选择对象选择" :width="340" style="margin-left: 16px;"></LSelect>
-      <LDateTimeSelect label="查询日期" :width="340" style="margin-left: 16px;"></LDateTimeSelect>
+      <LInput label="地区" placeholder="请输入地区"></LInput>
+      <LSelect label="能耗种类" placeholder="请选择能耗种类"></LSelect>
+      <LSelect label="对象选择" placeholder="请选择对象选择" style="margin-left: 16px;"></LSelect>
+      <LDateTimeSelect label="查询日期" style="margin-left: 16px;"></LDateTimeSelect>
       <LButton label="搜索" style="margin-left: 16px;"></LButton>
     </section>
 
@@ -58,6 +59,7 @@
 <script>
 import * as echarts from 'echarts'
 import moment from 'moment'
+import LInput from '../components/LInput.vue'
 import LSelect from '../components/LSelect.vue'
 import LDateTimeSelect from '../components/LDateTimeSelect.vue'
 import LButton from '../components/LButton.vue'
@@ -66,6 +68,7 @@ import QuotaChart from '../components/quota-chart.vue'
 
 export default {
   components: {
+    LInput,
     LSelect,
     LDateTimeSelect,
     LButton,
@@ -249,8 +252,8 @@ export default {
   width: 100%;
   height: 100%;
   padding: 0 20px;
-  background: url('../../public/static/img/bj.jpg') no-repeat;
-  // background: url("../../public/static/img/first.png") no-repeat;
+  background: url('../assets/img/bj.jpg') no-repeat;
+  // background: url("../assets/img/first.png") no-repeat;
   background-size: 100% 100%;
   color: #fff;
   box-sizing: border-box;
@@ -311,15 +314,15 @@ export default {
 
   .search_bar {
     width: 100%;
-    height: 46px;
+    height: 40px;
     display: flex;
     align-items: center;
   }
 
   .title_bar {
-    width: max-content;
-    height: 46px;
-    background-image: url('../assets/img/组 1.png');
+    width: 700px;
+    height: 40px;
+    background-image: url('../assets/img/微信图片_20211020105416.png');
     background-size: 100% 100%;
     padding: 0 80px 13px 30px;
     box-sizing: border-box;

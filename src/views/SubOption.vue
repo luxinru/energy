@@ -11,42 +11,53 @@
     </header>
 
     <section class="search_bar">
-      <LSelect label="能耗种类" placeholder="请选择能耗种类" :width="340"></LSelect>
-      <LSelect label="对象选择" placeholder="请选择对象选择" :width="340" style="margin-left: 16px;"></LSelect>
-      <LDateTimeSelect label="查询日期" :width="340" style="margin-left: 16px;"></LDateTimeSelect>
-      <LButton label="搜索" style="margin-left: 16px;"></LButton>
+      <LInput label="地区" placeholder="请输入地区"></LInput>
+      <LSelect
+        label="能耗种类"
+        placeholder="请选择能耗种类"
+      ></LSelect>
+      <LSelect
+        label="对象选择"
+        placeholder="请选择对象选择"
+        style="margin-left: 16px"
+      ></LSelect>
+      <LDateTimeSelect
+        label="查询日期"
+        style="margin-left: 16px"
+      ></LDateTimeSelect>
+      <LButton label="搜索" style="margin-left: 16px"></LButton>
     </section>
 
     <section class="container">
       <div class="box">
         <div class="part">
-          <el-scrollbar >
-            <table>
-              <tr>
-                <th>项目</th>
-                <th>数值</th>
-                <th>单位</th>
-              </tr>
+          <table>
+            <tr>
+              <th>项目</th>
+              <th>数值</th>
+              <th>单位</th>
+            </tr>
+            <el-scrollbar>
               <tr v-for="(item, index) in tableData1" :key="index">
                 <td>{{ item.project }}</td>
                 <td>{{ item.number }}</td>
                 <td>{{ item.unit }}</td>
               </tr>
-            </table>
-          </el-scrollbar>
+            </el-scrollbar>
+          </table>
         </div>
         <div class="part">
-          <el-scrollbar >
-            <table>
-              <tr>
-                <th>序号</th>
-                <th>名称</th>
-                <th>可租赁面积（平米）</th>
-                <th>总用电量（度）</th>
-                <th>单位面积用电量（度/平米）</th>
-                <th>总用水量（吨）</th>
-                <th>单位面积用水量（吨/平米）</th>
-              </tr>
+          <table>
+            <tr>
+              <th>序号</th>
+              <th>名称</th>
+              <th>可租赁面积（平米）</th>
+              <th>总用电量（度）</th>
+              <th>单位面积用电量（度/平米）</th>
+              <th>总用水量（吨）</th>
+              <th>单位面积用水量（吨/平米）</th>
+            </tr>
+            <el-scrollbar>
               <tr v-for="(item, index) in tableData2" :key="index">
                 <td>{{ index + 1 }}</td>
                 <td>{{ item.value1 }}</td>
@@ -56,40 +67,40 @@
                 <td>{{ item.value5 }}</td>
                 <td>{{ item.value6 }}</td>
               </tr>
-            </table>
-          </el-scrollbar>
+            </el-scrollbar>
+          </table>
         </div>
       </div>
       <div class="box">
         <div class="part">
-          <el-scrollbar>
-            <table>
-              <tr>
-                <th>项目</th>
-                <th>数值</th>
-                <th>单位</th>
-              </tr>
+          <table>
+            <tr>
+              <th>项目</th>
+              <th>数值</th>
+              <th>单位</th>
+            </tr>
+            <el-scrollbar>
               <tr v-for="(item, index) in tableData1" :key="index">
                 <td>{{ item.project }}</td>
                 <td>{{ item.number }}</td>
                 <td>{{ item.unit }}</td>
               </tr>
-            </table>
-          </el-scrollbar>
+            </el-scrollbar>
+          </table>
         </div>
 
         <div class="part">
-          <el-scrollbar>
-            <table>
-              <tr>
-                <th>序号</th>
-                <th>名称</th>
-                <th>可租赁面积（平米）</th>
-                <th>总用电量（度）</th>
-                <th>单位面积用电量（度/平米）</th>
-                <th>总用水量（吨）</th>
-                <th>单位面积用水量（吨/平米）</th>
-              </tr>
+          <table>
+            <tr>
+              <th>序号</th>
+              <th>名称</th>
+              <th>可租赁面积（平米）</th>
+              <th>总用电量（度）</th>
+              <th>单位面积用电量（度/平米）</th>
+              <th>总用水量（吨）</th>
+              <th>单位面积用水量（吨/平米）</th>
+            </tr>
+            <el-scrollbar>
               <tr v-for="(item, index) in tableData2" :key="index">
                 <td>{{ index + 1 }}</td>
                 <td>{{ item.value1 }}</td>
@@ -99,8 +110,8 @@
                 <td>{{ item.value5 }}</td>
                 <td>{{ item.value6 }}</td>
               </tr>
-            </table>
-          </el-scrollbar>
+            </el-scrollbar>
+          </table>
         </div>
       </div>
     </section>
@@ -109,12 +120,14 @@
 
 <script>
 import moment from 'moment'
+import LInput from '../components/LInput.vue'
 import LSelect from '../components/LSelect.vue'
 import LDateTimeSelect from '../components/LDateTimeSelect.vue'
 import LButton from '../components/LButton.vue'
 
 export default {
   components: {
+    LInput,
     LSelect,
     LButton,
     LDateTimeSelect
@@ -254,8 +267,8 @@ export default {
   width: 100%;
   height: 100%;
   padding: 0 20px;
-  background: url('../../public/static/img/bj.jpg') no-repeat;
-  // background: url("../../public/static/img/first.png") no-repeat;
+  background: url('../assets/img/bj.jpg') no-repeat;
+  // background: url("../assets/img/first.png") no-repeat;
   background-size: 100% 100%;
   color: #fff;
   box-sizing: border-box;
@@ -381,7 +394,7 @@ export default {
               justify-content: center;
               font-size: 15px;
               font-weight: 400;
-              color: #6392D3;
+              color: #6392d3;
             }
 
             td {
@@ -391,7 +404,7 @@ export default {
               justify-content: center;
               font-size: 15px;
               font-weight: 400;
-              color: #FFFFFF;
+              color: #ffffff;
             }
           }
         }
