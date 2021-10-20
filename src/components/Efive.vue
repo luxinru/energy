@@ -38,12 +38,6 @@ export default {
   },
   mounted () {
     this.initChart()
-
-    // 根据窗口变化自动调节图表大小
-    const that = this
-    window.onresize = function () {
-    //   that.changeSize()
-    }
   },
   methods: {
     // 初始化label样式

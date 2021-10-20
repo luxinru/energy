@@ -56,9 +56,9 @@ export default {
     this.initChart()
 
     // 根据窗口变化自动调节图表大小
-    window.onresize = () => {
-      this.changeSize()
-    }
+    // window.onresize = () => {
+    //   this.changeSize()
+    // }
   },
   methods: {
     // 初始化label样式

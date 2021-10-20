@@ -183,10 +183,10 @@ export default {
     this.gauge2 = echarts.init(this.$refs.gauge2)
     this.gauge2.setOption(this.gauge2Options)
 
-    window.onresize = () => {
-      this.gauge1.resize()
-      this.gauge2.resize()
-    }
+    // window.onresize = () => {
+    //   this.gauge1.resize()
+    //   this.gauge2.resize()
+    // }
   }
 }
 </script>

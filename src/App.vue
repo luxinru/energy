@@ -42,6 +42,14 @@ export default {
       isShowDrawer: false
     }
   },
+
+  mounted () {
+    window.onresize = () => {
+      console.log('onresizeonresizeonresizeonresize')
+      location.reload()
+    }
+  },
+
   methods: {
     onMouseenter () {
       this.isShowDrawer = true

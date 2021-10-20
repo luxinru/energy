@@ -145,10 +145,11 @@ export default {
     this.bar = echarts.init(this.$refs.bar)
     this.bar.setOption(this.barOptions)
 
-    window.onresize = () => {
-      console.log('11111111111111111')
-      this.bar.resize()
-    }
+    // const that = this
+    // window.onresize = () => {
+    //   console.log('11111111111111111', that.bar)
+    //   that.bar.resize()
+    // }
   }
 }
 </script>

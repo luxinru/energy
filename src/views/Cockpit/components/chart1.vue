@@ -385,10 +385,10 @@ export default {
     this.bar = echarts.init(this.$refs.bar)
     this.bar.setOption(this.barOptions)
 
-    window.onresize = () => {
-      this.pie.resize()
-      this.bar.resize()
-    }
+    // window.onresize = () => {
+    //   this.pie.resize()
+    //   this.bar.resize()
+    // }
   }
 }
 </script>

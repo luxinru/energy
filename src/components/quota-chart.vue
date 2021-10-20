@@ -147,9 +147,9 @@ export default {
     const option = this.defaultOption
     this.chartInstance.setOption(option)
 
-    window.onresize = () => {
-      this.chartInstance.resize()
-    }
+    // window.onresize = () => {
+    //   this.chartInstance.resize()
+    // }
   },
   methods: {
     _pie2 () {
