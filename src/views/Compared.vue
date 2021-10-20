@@ -197,7 +197,7 @@ export default {
           lineStyle: {
             normal: {
               width: 2,
-              color: '#777779'
+              color: 'RGBA(184, 77, 99, 1)'
             }
           },
           areaStyle: {

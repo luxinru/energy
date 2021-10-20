@@ -47,7 +47,7 @@
             </div>
             <div class="quota">
               <QuotaChart></QuotaChart>
-              <QuotaChart></QuotaChart>
+              <QuotaChart2></QuotaChart2>
             </div>
           </div>
         </div>
@@ -65,6 +65,7 @@ import LDateTimeSelect from '../components/LDateTimeSelect.vue'
 import LButton from '../components/LButton.vue'
 
 import QuotaChart from '../components/quota-chart.vue'
+import QuotaChart2 from '../components/quota-chart2.vue'
 
 export default {
   components: {
@@ -72,7 +73,8 @@ export default {
     LSelect,
     LDateTimeSelect,
     LButton,
-    QuotaChart
+    QuotaChart,
+    QuotaChart2
   },
   data () {
     return {

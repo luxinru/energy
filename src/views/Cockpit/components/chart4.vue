@@ -146,6 +146,7 @@ export default {
     this.bar.setOption(this.barOptions)
 
     window.onresize = () => {
+      console.log('11111111111111111')
       this.bar.resize()
     }
   }

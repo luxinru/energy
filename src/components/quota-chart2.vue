@@ -1,6 +1,6 @@
 <template>
   <div class="com-container">
-    <div class="com-chart"  ref="QuotaChart" />
+    <div class="com-chart"  ref="QuotaChart2" />
     <div class="content">
       <div class="item">
         <span class="value">1698</span>
@@ -18,7 +18,7 @@
 import 'echarts-liquidfill'
 
 export default {
-  name: 'QuotaChart',
+  name: 'QuotaChart2',
 
   data () {
     return {
@@ -142,7 +142,7 @@ export default {
   },
 
   mounted () {
-    this.chartInstance = this.$root.echarts.init(this.$refs.QuotaChart)
+    this.chartInstance = this.$root.echarts.init(this.$refs.QuotaChart2)
 
     const option = this.defaultOption
     this.chartInstance.setOption(option)
