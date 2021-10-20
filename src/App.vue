@@ -5,7 +5,7 @@
       v-model="isShowDrawer"
       direction="ltr"
       custom-class="drawer"
-      size="10%"
+      :size="190"
     >
       <el-menu
         active-text-color="#ffd04b"
