@@ -19,7 +19,17 @@
     </section>
 
     <section class="title_bar">
-      <span class="name">电耗  1#楼</span>
+      <span class="name">电耗
+        <el-select v-model="value" size="mini" style="width: 80px;">
+          <el-option
+            v-for="item in options"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value"
+          >
+          </el-option>
+        </el-select>
+      </span>
       <span class="date">2021-10-08-2021-10-08</span>
     </section>
 
@@ -80,6 +90,17 @@ export default {
     return {
       timer: null,
       now: moment().format('YYYY-MM-DD hh:mm:ss'),
+      value: 1,
+      options: [
+        {
+          label: '1#楼',
+          value: 1
+        },
+        {
+          label: '2#楼',
+          value: 2
+        }
+      ],
 
       chartInstance: null
     }
@@ -89,8 +110,8 @@ export default {
     defaultOption () {
       return {
         grid: {
-          top: 0,
-          right: 0,
+          top: 20,
+          right: 20,
           bottom: 0,
           left: 20,
           containLabel: true

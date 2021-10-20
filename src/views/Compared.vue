@@ -19,7 +19,17 @@
     </section>
 
     <section class="title_bar">
-      <span class="name">同比分析电耗  1#楼</span>
+      <span class="name">同比分析电耗
+        <el-select v-model="value" size="mini" style="width: 80px;">
+          <el-option
+            v-for="item in options"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value"
+          >
+          </el-option>
+        </el-select>
+      </span>
       <span class="date">2021/10/08-2021/10/08</span>
       <span class="name">对比</span>
       <span class="date">2021/10/08-2021/10/08</span>
@@ -52,7 +62,17 @@
     </section>
 
     <section class="title_bar">
-      <span class="name">同比分析电耗  1#楼</span>
+      <span class="name">同比分析电耗
+        <el-select v-model="value" size="mini" style="width: 80px;">
+          <el-option
+            v-for="item in options"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value"
+          >
+          </el-option>
+        </el-select>
+      </span>
       <span class="date">2021/10/08-2021/10/08</span>
       <span class="name">对比</span>
       <span class="date">2021/10/08-2021/10/08</span>
@@ -106,6 +126,17 @@ export default {
     return {
       timer: null,
       now: moment().format('YYYY-MM-DD hh:mm:ss'),
+      value: 1,
+      options: [
+        {
+          label: '1#楼',
+          value: 1
+        },
+        {
+          label: '2#楼',
+          value: 2
+        }
+      ],
 
       chartInstance: null,
       chartInstance1: null
@@ -126,10 +157,10 @@ export default {
           }
         },
         grid: {
-          left: '0',
-          top: '0',
-          right: '0',
-          bottom: '0',
+          top: 40,
+          left: 40,
+          bottom: 0,
+          right: 40,
           containLabel: true
         },
         xAxis: [{

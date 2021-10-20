@@ -23,12 +23,12 @@ export default {
   computed: {
     barOptions () {
       return {
-        backgroundColor: '#031d33',
         animation: true,
         grid: {
-          top: '5%',
-          bottom: '15%',
-          right: '5%'
+          top: 20,
+          left: 40,
+          bottom: 40,
+          right: 0
         },
         xAxis: {
           data: ['2021', '2022', '2023', '2024', '2025'],

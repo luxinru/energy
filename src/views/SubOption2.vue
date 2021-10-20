@@ -12,10 +12,7 @@
 
     <section class="search_bar">
       <LInput label="地区" placeholder="请输入地区"></LInput>
-      <LSelect
-        label="能耗种类"
-        placeholder="请选择能耗种类"
-      ></LSelect>
+      <LSelect label="能耗种类" placeholder="请选择能耗种类"></LSelect>
       <LSelect
         label="对象选择"
         placeholder="请选择对象选择"
@@ -29,7 +26,17 @@
     </section>
 
     <section class="title_bar">
-      <span class="name">电耗 1#楼</span>
+      <span class="name">电耗
+        <el-select v-model="value" size="mini" style="width: 80px;">
+          <el-option
+            v-for="item in options"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value"
+          >
+          </el-option>
+        </el-select>
+      </span>
       <span class="date">2021/10/08-2021/10/08</span>
     </section>
 
@@ -68,7 +75,7 @@
 </template>
 
 <script>
-// import * as echarts from 'echarts'
+import * as echarts from 'echarts'
 import moment from 'moment'
 import LInput from '../components/LInput.vue'
 import LButton from '../components/LButton.vue'
@@ -87,6 +94,17 @@ export default {
     return {
       timer: null,
       now: moment().format('YYYY-MM-DD hh:mm:ss'),
+      value: 1,
+      options: [
+        {
+          label: '1#楼',
+          value: 1
+        },
+        {
+          label: '2#楼',
+          value: 2
+        }
+      ],
       tableData1: [
         {
           project: '总占地面积',
@@ -236,9 +254,8 @@ export default {
             }
           }
         },
-
         legend: {
-          bottom: 10,
+          bottom: 80,
           left: 'center',
           orient: 'vertical',
           textStyle: {
@@ -249,247 +266,103 @@ export default {
           //   data: [0, 1, 2, 3, 4]
           // }]
         },
-
-        animation: false,
-
-        series: [
-          // 紫色
-          {
-            name: 'ring5',
-            type: 'custom',
-            coordinateSystem: 'none',
-            renderItem: (params, api) => {
-              return {
-                type: 'arc',
-                shape: {
-                  cx: api.getWidth() / 2,
-                  cy: api.getHeight() / 2,
-                  r: (Math.min(api.getWidth(), api.getHeight()) / 2) * 0.6,
-                  startAngle: ((0 + this.angle) * Math.PI) / 180,
-                  endAngle: ((90 + this.angle) * Math.PI) / 180
-                },
-                style: {
-                  stroke: '#8383FA',
-                  fill: 'transparent',
-                  lineWidth: 1.5
-                },
-                silent: true
+        tooltip: {
+          show: false
+        },
+        series: [{
+          type: 'pie',
+          name: '最内层径向渐变圆心',
+          clockWise: false,
+          radius: '42%',
+          center: ['50%', '50%'],
+          z: 1,
+          itemStyle: {
+            normal: {
+              color: new echarts.graphic.RadialGradient(0.5, 0.5, 0.6, [{
+                offset: 1,
+                color: 'RGBA(97, 144, 208, 0.5)'
+              },
+              {
+                offset: 0.6,
+                color: 'RGBA(97, 144, 208, 0)'
               }
-            },
-            data: [0]
+              ], false)
+            }
           },
-          {
-            name: 'ring5', // 紫点
-            type: 'custom',
-            coordinateSystem: 'none',
-            renderItem: (params, api) => {
-              const x0 = api.getWidth() / 2
-              const y0 = api.getHeight() / 2
-              const r = (Math.min(api.getWidth(), api.getHeight()) / 2) * 0.6
-              const point = this.getCirlPoint(x0, y0, r, 90 + this.angle)
-              return {
-                type: 'circle',
-                shape: {
-                  cx: point.x,
-                  cy: point.y,
-                  r: 4
-                },
-                style: {
-                  stroke: '#8450F9', // 绿
-                  fill: '#8450F9'
-                },
-                silent: true
-              }
-            },
-            data: [0]
+          hoverAnimation: false,
+          label: {
+            show: false
           },
-          // 蓝色
-
-          {
-            name: 'ring5',
-            type: 'custom',
-            coordinateSystem: 'none',
-            renderItem: (params, api) => {
-              return {
-                type: 'arc',
-                shape: {
-                  cx: api.getWidth() / 2,
-                  cy: api.getHeight() / 2,
-                  r: (Math.min(api.getWidth(), api.getHeight()) / 2) * 0.6,
-                  startAngle: ((180 + this.angle) * Math.PI) / 180,
-                  endAngle: ((270 + this.angle) * Math.PI) / 180
-                },
-                style: {
-                  stroke: '#4386FA',
-                  fill: 'transparent',
-                  lineWidth: 1.5
-                },
-                silent: true
-              }
-            },
-            data: [0]
+          tooltip: {
+            show: false
           },
-          {
-            name: 'ring5', // 蓝色
-            type: 'custom',
-            coordinateSystem: 'none',
-            renderItem: (params, api) => {
-              const x0 = api.getWidth() / 2
-              const y0 = api.getHeight() / 2
-              const r = (Math.min(api.getWidth(), api.getHeight()) / 2) * 0.6
-              const point = this.getCirlPoint(x0, y0, r, 180 + this.angle)
-              return {
-                type: 'circle',
-                shape: {
-                  cx: point.x,
-                  cy: point.y,
-                  r: 4
-                },
-                style: {
-                  stroke: '#4386FA', // 绿
-                  fill: '#4386FA'
-                },
-                silent: true
-              }
-            },
-            data: [0]
+          data: [100]
+        },
+        {
+          type: 'pie',
+          name: '内层细圆环1',
+          radius: ['46%', '46%'],
+          hoverAnimation: false,
+          clockWise: false,
+          itemStyle: {
+            normal: {
+              borderColor: 'RGBA(4, 156, 212, 1)',
+              borderWidth: 1,
+              borderType: [50, 50]
+            }
           },
-
-          {
-            name: 'ring5',
-            type: 'custom',
-            coordinateSystem: 'none',
-            renderItem: (params, api) => {
-              return {
-                type: 'arc',
-                shape: {
-                  cx: api.getWidth() / 2,
-                  cy: api.getHeight() / 2,
-                  r: (Math.min(api.getWidth(), api.getHeight()) / 2) * 0.65,
-                  startAngle: ((270 + -this.angle) * Math.PI) / 180,
-                  endAngle: ((40 + -this.angle) * Math.PI) / 180
-                },
-                style: {
-                  stroke: '#0CD3DB',
-                  fill: 'transparent',
-                  lineWidth: 1.5
-                },
-                silent: true
-              }
-            },
-            data: [0]
+          label: {
+            show: false
           },
-          // 橘色
-
-          {
-            name: 'ring5',
-            type: 'custom',
-            coordinateSystem: 'none',
-            renderItem: (params, api) => {
-              return {
-                type: 'arc',
-                shape: {
-                  cx: api.getWidth() / 2,
-                  cy: api.getHeight() / 2,
-                  r: (Math.min(api.getWidth(), api.getHeight()) / 2) * 0.65,
-                  startAngle: ((90 + -this.angle) * Math.PI) / 180,
-                  endAngle: ((220 + -this.angle) * Math.PI) / 180
-                },
-                style: {
-                  stroke: '#FF8E89',
-                  fill: 'transparent',
-                  lineWidth: 1.5
-                },
-                silent: true
-              }
-            },
-            data: [0]
+          data: [100]
+        },
+        {
+          type: 'pie',
+          name: '内层细圆环2',
+          radius: ['42%', '42%'],
+          hoverAnimation: false,
+          clockWise: false,
+          itemStyle: {
+            normal: {
+              borderColor: 'RGBA(89, 133, 196, 1)',
+              borderWidth: 1
+            }
           },
-          {
-            name: 'ring5',
-            type: 'custom',
-            coordinateSystem: 'none',
-            renderItem: (params, api) => {
-              const x0 = api.getWidth() / 2
-              const y0 = api.getHeight() / 2
-              const r = (Math.min(api.getWidth(), api.getHeight()) / 2) * 0.65
-              const point = this.getCirlPoint(x0, y0, r, 90 + -this.angle)
-              return {
-                type: 'circle',
-                shape: {
-                  cx: point.x,
-                  cy: point.y,
-                  r: 4
-                },
-                style: {
-                  stroke: '#FF8E89', // 粉
-                  fill: '#FF8E89'
-                },
-                silent: true
-              }
-            },
-            data: [0]
+          label: {
+            show: false
           },
-          {
-            name: 'ring5', // 绿点
-            type: 'custom',
-            coordinateSystem: 'none',
-            renderItem: (params, api) => {
-              const x0 = api.getWidth() / 2
-              const y0 = api.getHeight() / 2
-              const r = (Math.min(api.getWidth(), api.getHeight()) / 2) * 0.65
-              const point = this.getCirlPoint(x0, y0, r, 270 + -this.angle)
-              return {
-                type: 'circle',
-                shape: {
-                  cx: point.x,
-                  cy: point.y,
-                  r: 4
-                },
-                style: {
-                  stroke: '#0CD3DB', // 绿
-                  fill: '#0CD3DB'
-                },
-                silent: true
-              }
-            },
-            data: [0]
+          data: [100]
+        },
+        {
+          type: 'pie',
+          name: '最外层细圆环',
+          hoverAnimation: false,
+          clockWise: false,
+          radius: ['60%', '60%'],
+          itemStyle: {
+            normal: {
+              borderColor: 'RGBA(66, 98, 150, 1)',
+              borderWidth: 1,
+              borderType: [5, 10],
+              borderDashOffset: 5
+            }
           },
-          {
-            name: 'pie',
-            type: 'pie',
-            clockWise: false,
-            // radius: [40, 32],
-            radius: ['40%', '35%'],
-            hoverAnimation: false,
-            itemStyle: {
-              normal: {
-                borderColor: '#0A1934',
-                borderWidth: 5,
-                color: (params) => {
-                  return this.color[params.dataIndex]
-                }
-              }
-            },
-            labelLine: {
-              show: false
-            },
-            data: this.realData
+          label: {
+            show: false
           },
-          {
-            type: 'pie',
-            zlevel: 3,
-            hoverAnimation: false,
-            radius: ['45%', '50%'],
-            clockWise: false,
-            labelLine: {
-              show: false
-            },
-            label: {
-              show: false
-            },
-            data: this.datas
+          data: [100]
+        },
+        {
+          name: '饼图内容区',
+          type: 'pie',
+          clockWise: false,
+          radius: ['50%', '56%'],
+          hoverAnimation: false,
+          data: this.datas,
+          label: {
+            show: false
           }
+        }
         ]
       }
     },
@@ -579,32 +452,9 @@ export default {
 
       const option = this.defaultOption
       this.chartInstance.setOption(option)
-
-      let timerId = null
-
-      if (timerId) {
-        clearInterval(timerId)
-      }
-      timerId = setInterval(() => {
-        this.draw()
-      }, 100)
     })
   },
   methods: {
-    getCirlPoint (x0, y0, r, angle) {
-      const x1 = x0 + r * Math.cos((angle * Math.PI) / 180)
-      const y1 = y0 + r * Math.sin((angle * Math.PI) / 180)
-      return {
-        x: x1,
-        y: y1
-      }
-    },
-
-    draw () {
-      this.angle = this.angle + 3
-      this.chartInstance.setOption(this.defaultOption, true)
-      // window.requestAnimationFrame(draw);
-    }
   },
   beforeUnmount () {
     if (this.timer) {

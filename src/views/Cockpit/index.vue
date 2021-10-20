@@ -87,7 +87,7 @@ export default {
 .screen-container {
   width: 100%;
   height: 100%;
-  padding: 20px 20px;
+  padding: 0 20px 20px;
   background: url('../../assets/img/背景.png') no-repeat;
   background-size: 100% 100%;
   color: #fff;
